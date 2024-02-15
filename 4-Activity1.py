@@ -6,19 +6,10 @@ Student 2: Ala'a Al Zein (UID: 759009741)
 Student 3: Youssef Abdelfattah (UID: 405008858)
 Student 4: Ayman Abdulwahid (UID: 405008855)
 
+Repositry link: https://github.com/narimaansamani11/NarimaanGCIS123/blob/main/4-Activity1.py
 """
+
 from turtle import Turtle, Screen #importing turtle module
-
-x = int(input('Enter a value between "-200, 150" for your initial "x" position for drawing: ')) #Input commands that the user will choose the drawing's "X" position
-y = int(input('Enter a value between "-50, 100" for your initial "y" position for drawing: ')) #Input commands that the user will choose the drawing's "Y" position
-
-#Function for setting position
-def set_position(turta,x,y):
-    """
-    This function allows you to set the position that the user wants for the drawings
-    """
-    turta.penup()
-    turta.goto(x,y)
 
 #Initial function to draw the hexagon sizes
 def hexagon(turta, forward, right):
@@ -47,7 +38,6 @@ def hexagon_main(turta,shape_border_color,hexa_color):
     turta.end_fill()        
     turta.penup()
 
-
 #Function for drawing circle
 def circle_main(turta,shape_border_color,circle_color):
     """
@@ -70,7 +60,7 @@ def circle_main(turta,shape_border_color,circle_color):
 def square(turta, forward, right):
     turta.forward(forward)
     turta.right(right)
-    
+   
 #Function for drawing square
 def square_main(turta,shape_border_color,square_color):
     """
@@ -92,6 +82,76 @@ def square_main(turta,shape_border_color,square_color):
     turta.end_fill()
     turta.penup()
 
+#This function draws all the shapes in a specific order.
+def Pattern(turta,shape_border_color,hexa_color,circle_color,square_color):
+    """
+    This function is for positioning and drawing the shapes based on the positions that the user entered at the beginning of the code
+    """
+    x = 0
+    y = 0
+
+    '''
+    x = int(input('Enter a value between "-200, 150" for your initial "x" position for drawing: ')) #Input commands that the user will choose the drawing's "X" position
+    y = int(input('Enter a value between "-50, 100" for your initial "y" position for drawing: ')) #Input commands that the user will choose the drawing's "Y" position
+    '''
+
+    #Function for setting position
+    def set_position(turta,x,y):
+        """
+        This function allows you to set the position that the user wants for the drawings
+        """
+        turta.penup()
+        turta.goto(x,y)
+
+    #Hexagon 1
+    turta.penup()
+    set_position(turta,x,y)
+    hexagon_main(turta,shape_border_color,hexa_color)
+    
+    #Circle 1
+    turta.penup()
+    set_position(turta,x+100,y-50)
+    circle_main(turta,shape_border_color,circle_color)
+        
+    #Square 1
+    turta.left(180)
+    turta.penup()
+    set_position(turta,x+220,y)
+    square_main(turta,shape_border_color,square_color)
+        
+    #Hexagon 2
+    turta.penup()
+    set_position(turta,x+70,y-120)
+    hexagon_main(turta,shape_border_color,hexa_color)
+    
+    #Circle 2
+    turta.penup()
+    set_position(turta,x+170,y-170)
+    circle_main(turta,shape_border_color,circle_color)
+        
+    #Square 2
+    turta.left(180)
+    turta.penup()
+    set_position(turta,x+290,y-120)
+    square_main(turta,shape_border_color,square_color)
+        
+    #Hexagon 3
+    turta.penup()
+    set_position(turta,x+140,y-20)
+    turta.goto(x+140,y-240)
+    hexagon_main(turta,shape_border_color,hexa_color)
+        
+    #Circle 3
+    turta.penup()
+    set_position(turta,x+240,y-290)
+    circle_main(turta,shape_border_color,circle_color)
+        
+    #Square 3
+    turta.left(180)
+    turta.penup()
+    set_position(turta,x+360,y-240)
+    square_main(turta,shape_border_color,square_color)
+
 #Main function to call everthing that we want to be run in the code
 def main():
     shape_border_color = input("Enter your shape border color: ") #Input for the user to choose the border colors
@@ -99,61 +159,8 @@ def main():
     circle_color = input("Enter your circle color: ") #Input command for the user to choose the color of the circle
     square_color = input("Enter your square color: ") #Input command for the user to choose the color of the square
 
-    #This function draws all the shapes in a specific order.
-    def Pattern(turta,x,y):
-        """
-        This function is for positioning and drawing the shapes based on the positions that the user entered at the beginning of the code
-        """
-        #Hexagon 1
-        turta.penup()
-        turta.goto(x,y)
-        hexagon_main(turta,shape_border_color,hexa_color)
-
-        #Circle 1
-        turta.penup()
-        turta.goto(x+100,y-50)
-        circle_main(turta,shape_border_color,circle_color)
-        
-        #Square 1
-        turta.left(180)
-        turta.penup()
-        turta.goto(x+220,y)
-        square_main(turta,shape_border_color,square_color)
-        
-        #Hexagon 2
-        turta.penup()
-        turta.goto(x+70,y-120)
-        hexagon_main(turta,shape_border_color,hexa_color)
-        
-        #Circle 2
-        turta.penup()
-        turta.goto(x+170,y-170)
-        circle_main(turta,shape_border_color,circle_color)
-        
-        #Square 2
-        turta.left(180)
-        turta.penup()
-        turta.goto(x+290,y-120)
-        square_main(turta,shape_border_color,square_color)
-        
-        #Hexagon 3
-        turta.penup()
-        turta.goto(x+140,y-240)
-        hexagon_main(turta,shape_border_color,hexa_color)
-        
-        #Circle 3
-        turta.penup()
-        turta.goto(x+240,y-290)
-        circle_main(turta,shape_border_color,circle_color)
-        
-        #Square 3
-        turta.left(180)
-        turta.penup()
-        turta.goto(x+360,y-240)
-        square_main(turta,shape_border_color,square_color)
-    
     #Calling the fuction "Pattern"
-    Pattern(turta,x,y)
+    Pattern(turta,shape_border_color,hexa_color,circle_color,square_color)
     
     turta.speed(5) #Set the drawing speed of the turtle to 5.
     
