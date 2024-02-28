@@ -149,11 +149,11 @@ def main():
 
     # Ask user if they want to continue
     while True:
-        another_conversion = input("Do you want to continue? (yes/no): ")
-        if another_conversion.lower() in ('yes', 'no'):
+        another_conversion = input("Do you want to continue? (yes/no): ").lower()
+        if another_conversion == 'yes' or another_conversion == 'no':
             break
-        else:
-            print("Invalid input! Please enter 'yes' or 'no'.")
+        print("Invalid input! Please enter 'yes'")
+
 
     if another_conversion.lower() == 'yes': # If user wants to continue
         print("")
